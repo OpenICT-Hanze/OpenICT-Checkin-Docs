@@ -3,8 +3,7 @@ Welcome to the OpenICT, Check In website documentation!
 
 **OpenICT checkin** is a website made by the student to put their own hosted "check in". Together with the OpenICT way of learning, the whole project is managed by the SCRUM process and will be maintained by the students in this semester or internship.
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+Check out the :ref:`installation` page to set up the program for yourself. Or check out the :ref:`api` if you already have everything set up locally.
 
 .. note::
 
