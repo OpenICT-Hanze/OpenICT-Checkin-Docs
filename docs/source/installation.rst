@@ -62,7 +62,7 @@ This will install all the required filed, make sure they are updated and set the
 
 Technically, you should now see the project as below! 
 
-.. image:: _static/img/RocketMap.png
+.. image:: _static/img/frontpage.png
    :align: center
 
 .. note::
@@ -99,12 +99,9 @@ Contents
 
 .. toctree::
 
-	requirements
-
+   requirements
    installation
-
    updating
-
    usage
 
 
