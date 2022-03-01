@@ -62,7 +62,7 @@ This will install all the required filed, make sure they are updated and set the
 
 Technically, you should now see the project as below! 
 
-.. image:: _static/img/frontpage.png
+.. image:: frontpage.png
    :align: center
 
 .. note::
