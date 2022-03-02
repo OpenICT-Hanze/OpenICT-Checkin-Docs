@@ -5,9 +5,11 @@ Installation
 Requirements
 ------------
 
+- `GIT available from commandline <https://git-scm.com/>`_
 - `XAMPP with PHP 8.0 or higher <https://www.apachefriends.org/index.html>`_
-- PHP installed in PATH variables (done by XAMPP or composer automatically)
 - `Composer <https://getcomposer.org/>`_
+- - Syntax error while installing? Go to the specified file and place the path within "" marks.
+- PHP installed in PATH variables (Available as a checkmark in the composer installer)
 - Access to `the restricted github page <https://github.com/RedFirebreak/OpenICT-Checkin>`_ (Ask RedFirebreak or any collaborator for access)
 
 After making sure that all the requirements are met on your system, you can continue to the next section.
@@ -20,7 +22,7 @@ Installation
 
    This is only required if you want to `develop` for the project, want to see or use the project? Go to the `development website`_ or the `production website`_.
 
-Start your XAMPP apache and heidisql. After that, to test and develop this project locally, first clone it from the main repository,:
+Start your XAMPP control panel, then start apache and MySQL. After that, to test and develop this project locally, clone the base code from the main repository:
 
 .. code-block:: console
 
@@ -33,7 +35,7 @@ In the project folder, copy the ``.env.example`` to a new file called ``.env`` a
 
 .. note::
 
-   Make sure to prepare the required database in advance. If no database is present, the application will **NOT** load and you will see a `500: error`
+   Make sure to prepare the required database in advance. If no database is present, the application will **NOT** load and you will see a `500: error` message.
 
 After cloning, go into path of the cloned folder and keep the terminal open
 
@@ -54,20 +56,19 @@ With the still opened terminal, peform the following commands:
 
    (project/) $ composer install
    (project/) $ composer update
-   (project/) $ composer dump-autoload
 
    (project/) $ php artisan key:generate
 
 This will install all the required filed, make sure they are updated and set them up for auto-loading. After this, you will generate your own security key for the application.
 
-Technically, you should now see the project as below! 
+Technically, you should now see the project as below! `You can also click this link to go to the localhost page. <http://localhost/OpenICT-Checkin/public/>`_
 
 .. image:: frontpage.png
    :align: center
 
 .. note::
 
-   Make sure to prepare the required database in advance. If no database is present, the application will **NOT** load and you will see a `500: error` page instead of the image above.
+   Error 500 page instead of the project? Or a different error? Make sure to restart the apache server and run `composer update` again to make sure the application can gather all the packages. Otherwise, google the error given for a quick fix, or call for your team! :)
 
 .. _updating:
 Updating
