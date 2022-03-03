@@ -20,7 +20,7 @@ Installation
 ------------
 .. note::
 
-   This is only required if you want to `develop` for the project, want to see or use the project? Go to the `development website`_ or the `production website`_.
+   This is only required if you want to `develop` for the project, want to see or use the project? Go to the `development website`_ or the `production website`_. Further, this installation sets up a XAMPP server on your local machine to start developing.
 
 Start your XAMPP control panel, then start apache and MySQL. After that, to test and develop this project locally, clone the base code from the main repository:
 
@@ -63,7 +63,7 @@ This will install all the required filed, make sure they are updated and set the
 
 Technically, you should now see the project as below! `You can also click this link to go to the localhost page. <http://localhost/OpenICT-Checkin/public/>`_
 
-.. image:: frontpage.png
+.. image:: images/frontpage.png
    :align: center
 
 .. note::
@@ -73,14 +73,14 @@ Technically, you should now see the project as below! `You can also click this l
 .. _updating:
 Updating
 ------------
-To update the application, move a cmd to the project directory and peform the following commands:
+To update the application, move a cmd to the git cloned project directory and peform the following commands:
 
 .. code-block:: console
 
    (cmd) $ cd {path/to/xamp/htdocs/project}
    (project/) $ 
 
-Then, with the same cmd screen:
+Then, with the same cmd screen open:
 
 .. code-block:: console
 
