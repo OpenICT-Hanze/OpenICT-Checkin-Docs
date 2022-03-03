@@ -2,8 +2,7 @@ Database
 ===================================
 
 .. tables:
-Tables
---------
+..Check-in:
 Check-in
 --------
 check_in_questions: 
