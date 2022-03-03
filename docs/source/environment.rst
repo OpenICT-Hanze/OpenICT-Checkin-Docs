@@ -25,10 +25,14 @@ When the user/programmer is done with their part of code and want to upload it t
 .. image:: images/pullrequest.png
    :align: center
 
+
+
 To approve and merge the pull request, another member of the team is required to review the code and approve the changes. This is to prevent "bad" code to enter the project and to make sure multiple team members are aware of the changes. A pull request to the master branch requires two reviews. 
 
-.. image:: images/mergedpullrequest.png.png
+.. image:: images/mergedpullrequest.png
    :align: center
+
+
 
 Documentation
 --------

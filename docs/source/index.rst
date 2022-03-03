@@ -15,8 +15,7 @@ Contents
 
 .. toctree::
 
+   environment
    installation
-
    database
-
    api
