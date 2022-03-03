@@ -4,16 +4,24 @@ Database
 .. tables:
 Tables
 --------
-check_in_vragen: 
-	hierin worden de vragen die gesteld gaat worden tijdens de check-in opgeslagen, 
+Check-in
+check_in_questions: 
+	Here are all the questions are are going to be asked in a check-in. With the `active` column it possible to have a question in the table but not asked in a check-in
 
 check_in
-	Dit is de collectie waar de antwoorden op de vragen aan gehangen kunnen worden.
-	In de row reflectie komt het deel van de reflectie waar de gebruiker zelf iets kan typen
+	This is the collection point for the check-in.
+	This is linked to a user to see who the check-in belongs to and a Date so that it is known on what date the check-in was made.
 
-check_in_antwoorden
-	Hierin komen de antwoorden van de vragen die gesteld zijn in de check_in
-	Hier komt ook de vraag waarop antwoord is gegeven. Dit is om ervoor te zorgen dat wanneer de vraag veranderd wordt, er nog wel gekeken kan worden hoe de vraag stond op moment van reflecteren.
+check_in_answer
+	Here are the answers to the questions.
+	The questions themselves are also saved. Because in the possibility that the questions are modified, you want to know to what wording the users answered to.
+
+User
+user
+	Here is the user data saved. THe saved user data is: A name to login with, The email, the role of the user and the password.
+
+role
+	The roles available to link to a user
 
 
 Contents
@@ -21,4 +29,5 @@ Contents
 
 .. toctree::
 
-	tables
+	Check-in
+	User
