@@ -22,7 +22,22 @@ Installation
 
    This is only required if you want to `develop` for the project, want to see or use the project? Go to the `development website`_ or the `production website`_. Further, this installation sets up a XAMPP server on your local machine to start developing.
 
-Start your XAMPP control panel, then start apache and MySQL. After that, to test and develop this project locally, clone the base code from the main repository:
+After installing all of the requirements, start your XAMPP control panel, then start the Apache and MySQL. When both of the processes are running and green, click on the `admin` in the MySQL line. This will open up PHPMyAdmin in your default browser.
+
+.. image:: images/XAMMPcontrolpanel.png
+   :align: center
+
+With this, we are going to create a new, empty database for our project. This is nessecary to make sure the website can store and retrieve data. On this window, click on "nieuw".
+
+.. image:: images/newdatabase.png
+   :align: center
+
+Then, give your database a simple name. For example: `laravel` will do just fine. After filling in a name, click the 'aanmaken' button.
+
+.. image:: images/newdatabasecreate.png
+   :align: center
+
+The database has been created! You can now close this browser window. After that, to test and develop this project locally, we need to clone the base code from the main repository. To get started **open a powershell or cmd console and peform the following commands below**:
 
 .. code-block:: console
 
@@ -59,9 +74,17 @@ With the still opened terminal, peform the following commands:
 
    (project/) $ php artisan key:generate
 
-This will install all the required filed, make sure they are updated and set them up for auto-loading. After this, you will generate your own security key for the application.
+This will install all the required filed, make sure they are updated and set them up for auto-loading. After this, you will generate your own security key for the application. After this, you can begin to prepare the database. In a development situation, you are required to set up your own database, including some dummy data to get started. If you have set up your database connection in the `.env` file, you can start the next commands:
 
-Technically, you should now see the project as below! `You can also click this link to go to the localhost page. <http://localhost/OpenICT-Checkin/public/>`_
+.. code-block:: console
+
+   (project/) $ php artisan migrate
+   (project/) $ php artisan db:seed
+
+.. image:: images/databaseseed.png
+   :align: center
+
+If all goes well, your databse should now be created and filled with some dummy data. Technically, you should now see the project as below! `You can also click this link to go to the localhost page. <http://localhost/OpenICT-Checkin/public/>`_
 
 .. image:: images/frontpage.png
    :align: center
@@ -94,17 +117,6 @@ Usage
 ----------------
 
 **INCOMPLETE**
-
-Contents
---------
-
-.. toctree::
-
-   requirements
-   installation
-   updating
-   usage
-
 
 .. _development website: https://dev.genericwebsitename.nl/
 .. _production website: https://www.genericwebsitename.nl/

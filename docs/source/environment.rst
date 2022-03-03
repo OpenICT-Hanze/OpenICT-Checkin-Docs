@@ -1,16 +1,20 @@
 Environment 
 ===================================
+.. _environment:
 
 During development, two main sites have been set up to automatically reflect all the changes in the corresponding github branches. These two websites are always in sync with the github repository and will reflect changes within 5 minutes of additions or removals. 
 
+.. _production site:
 `Main production website <https://www.genericwebsitename.nl/>`_ 
 --------
 	The latest main branch, this version of the website will only get updated on the release of a new version, often at the end of the sprint period.
 
+.. _development site:
 `Main development website <https://dev.genericwebsitename.nl/>`_
 --------
 	The latest version of the development branch. This version continuesly updates with every addition to the development branch. This website has been set up to spot any extra deployment issues that may arise while updating the main website.
-	
+
+.. _github:
 Repository (Github) flow
 --------
 The `Github repository <https://github.com/RedFirebreak/OpenICT-Checkin-Docs>`_ has protected branches. This means that direct commiting/pushing to the master and dev branch is not allowed by default. Instead, the user/programmer is encouraged to create a new branch from the development branch. There are many tutorials to do so, or you can simply ask your team to assist you.
@@ -25,18 +29,12 @@ When the user/programmer is done with their part of code and want to upload it t
 .. image:: images/pullrequest.png
    :align: center
 
-
-
 To approve and merge the pull request, another member of the team is required to review the code and approve the changes. This is to prevent "bad" code to enter the project and to make sure multiple team members are aware of the changes. A pull request to the master branch requires two reviews. 
 
 .. image:: images/mergedpullrequest.png
    :align: center
 
-
-
+.. _documentation:
 Documentation
 --------
 The documentation of this project will be in continued development and is subject to (many) changes.
-
-.. autosummary::
-   :toctree: generated
