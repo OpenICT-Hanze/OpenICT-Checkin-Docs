@@ -61,7 +61,7 @@ With the still opened terminal, peform the following commands:
 
 This will install all the required filed, make sure they are updated and set them up for auto-loading. After this, you will generate your own security key for the application.
 
-Technically, you should now see the project as below! `You can also click this link to go to the localhost page. <http://localhost/OpenICT-Checkin/public/>`_
+Technically, you should now see the project as below! `You can also click this link to go to the localhost page. <http://localhost:8000/>`_
 
 .. image:: images/frontpage.png
    :align: center
