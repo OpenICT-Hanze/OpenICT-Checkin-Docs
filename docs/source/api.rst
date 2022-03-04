@@ -14,20 +14,40 @@ V1
 /api/v1/getDailyAll:
 	Returns a JSON with the used version.
 
-/api/v1/getDailyID:{id}: 
+/api/v1/getDailyID/{id}: 
 	expects: ID number of a daily
 	on fail: Returns 404 page
 	Returns a JSON with the daily of the corresponding id.
 
-/api/v1/getDaily:{username}:
+/api/v1/getDaily/{username}:
 	expects: Exact username
 	on fail: Returns 404 page
 	Returns a JSON with all the users daily check ins.
 
-/api/v1/getDailyUserLatest:{username}:
+/api/v1/getDailyUserLatest/{username}:
 	expects: Exact username
 	on fail: Returns 404 page
 	Returns a JSON with the latest daily post.
+
+POST /api/v1/dailyCheckin:
+	Expects a JSON request with the following fields::
+		username STRING
+		feeling_score INT
+		feeling_text STRING (not required)
+		hours_worked_yesterday INT
+		problems BOOL
+		problems_text STRING (not required)
+	
+	Example::
+		{
+			"username":"Ro",
+			"feeling_score": 4,
+			"feeling_text": "slecht geslapen",
+			"hours_worked_yesterday":3,
+			"problems":true,
+			"problems_text": "moe"
+		}		
+
 
 /api/v1/putDaily: 
 	Expects: nothing
