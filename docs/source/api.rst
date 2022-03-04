@@ -30,7 +30,8 @@ V1
 	Returns a JSON with the latest daily post.
 
 POST /api/v1/dailyCheckin:
-	Expects a JSON request with the following fields::
+	Expects a JSON request with the following fields:
+	.. code-block:: none	
 		username STRING
 		feeling_score INT
 		feeling_text STRING (not required)
@@ -38,7 +39,8 @@ POST /api/v1/dailyCheckin:
 		problems BOOL
 		problems_text STRING (not required)
 	
-	Example::
+	Example:
+	.. code-block: json
 		{
 			"username":"Ro",
 			"feeling_score": 4,
