@@ -31,23 +31,35 @@ V1
 
 POST /api/v1/dailyCheckin:
 	Expects a JSON request with the following fields:
-	.. code-block:: none	
+	
 		username STRING
+		
 		feeling_score INT
+		
 		feeling_text STRING (not required)
+		
 		hours_worked_yesterday INT
+		
 		problems BOOL
+		
 		problems_text STRING (not required)
 	
 	Example:
-	.. code-block: json
+	
 		{
+		
 			"username":"Ro",
+			
 			"feeling_score": 4,
+			
 			"feeling_text": "slecht geslapen",
+			
 			"hours_worked_yesterday":3,
+			
 			"problems":true,
+			
 			"problems_text": "moe"
+			
 		}		
 
 
