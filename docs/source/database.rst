@@ -25,3 +25,8 @@ Usefull command list
 	- `php artisan make:model NAME` -> Creates a new model, which can be hooked to the database
 
 To view all the ways you can interact with the database, go to the :ref:`api` page. Here you can find all the available endpoints that can interact with the database to get and store data.
+
+Creating Tables
+===================================
+
+        - `$table->foreignId('user_id')->constrained();` -> Creates a column called `user_id` that has a foreign key constrain with the column `id` in the user table
