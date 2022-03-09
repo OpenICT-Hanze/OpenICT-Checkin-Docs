@@ -11,109 +11,77 @@ V1
 /api/v1/getVersion: 
 	Returns a JSON with the used version.
 
-/api/v1/getDailyAll:
-	Returns a JSON with the used version.
-
-/api/v1/getDailyID/{id}: 
-	expects: ID number of a daily
-	on fail: Returns 404 page
-	Returns a JSON with the daily of the corresponding id.
-
-/api/v1/getDaily/{username}:
-	expects: Exact username
-	on fail: Returns 404 page
-	Returns a JSON with all the users daily check ins.
-
-/api/v1/getDailyUserLatest/{username}:
-	expects: Exact username
-	on fail: Returns 404 page
-	Returns a JSON with the latest daily post.
-
-POST /api/v1/dailyCheckin:
-	Expects a JSON request with the following fields:
+/api/v1/getUserAll
+	Returns a JSON with all users.
 	
-		username STRING
-		
-		feeling_score INT
-		
-		feeling_text STRING (not required)
-		
-		hours_worked_yesterday INT
-		
-		problems BOOL
-		
-		problems_text STRING (not required)
+/api/v1/getUserAdmins:
+	Returns a JSON with all users who have their role set as 1.
+
+/api/v1/getUserStudents:
+	Returns a JSON with all users who have their role set as 0.
 	
-	Example:
+/api/v1/getUser/{id}:
+	Returns a JSON with the user associated with id.
 	
-		{
-		
-			"username":"Ro",
-			
-			"feeling_score": 4,
-			
-			"feeling_text": "slecht geslapen",
-			
-			"hours_worked_yesterday":3,
-			
-			"problems":true,
-			
-			"problems_text": "moe"
-			
-		}		
+/api/v1/setUser:
+	Functiionality not written.
 
+/api/v1/getUserForms/{user_id}:
+	Returns a JSON with all answers of user user_id.
+	
+/api/v1/geUserFormLatest/{user_id}:
+	Returns a JSON with the answers of the latest form filled in.
 
-/api/v1/putDaily: 
-	Expects: nothing
-	Creates a random daily check in
-	Returns a JSON with status OK, and the data created.
+/api/v1/geUserDailyLatest/{user_id}:
+	Returns a JSON with the answers of user user_id of the daily check-in form (form_id 1).
+	
+/api/v1/getFormAll:
+	Returns a JSON with all forms
 
+/api/v1/getForm/{id}:
+	Returns a JSON with the form form_id and its associated questions.
+	
+/api/v1/getDaily:
+	Returns a JSON with the daily check-in form (form_id 1).
+	
+/api/v1/setForm:
+	Functiionality not written.
+
+/api/v1/getAnswerAll:
+	Returns a JSON with all answres written.
+	
+/api/v1/getFormAnswers/{id}:
+	Returns a JSON with the answers in the row id.
+	
+/api/v1/saveFormAnswers:
+	Saves the answers in the database.
+	Expects:
+		user_id -> The id of the user who answered the form.
+		form_id -> The id of the form that is filled in.
+		array_answers -> An array of the answers in string format. 
+			Example:
+				{
+					"5",
+					
+					"My day went well",
+					
+					"colleagues were nice"
+				}
+
+/api/v1/getQuestionAll:
+	Returns a JSON with all questions.
+
+/api/v1/getQuestion/{id}:
+	Returns a JSON with Question id.
+	
+/api/v1/editQuestion/{id}:
+	Functiionality not written.
+
+/api/v1/putDaily:
+	Creates a basic answer sheet
 .. _v2:
 V2
 --------
 /api/v2/getVersion: 
 	Returns a JSON with the used version.
 	
-/api/v2/getForm/{id}:
-	Returns a JSON with the form and questions associated with that form. Eg.
-		[
-			[
-				{"id":1,"title":"daily","questions_array":"{1, 2, 3, 4, 5,}","active":1,"protected":1,"changed":0,"created_at":"2022-03-09T08:04:20.000000Z","updated_at":"2022-03-09T08:04:20.000000Z"}
-			],
-			[
-				{"id":1,"form_id":1,"type":"text","data":"Question 0","active":1,"deleted":0,"changed":0,"created_at":"2022-03-09T08:04:20.000000Z","updated_at":"2022-03-09T08:04:20.000000Z"},
-				
-				{"id":2,"form_id":1,"type":"text","data":"Question 1","active":1,"deleted":0,"changed":0,"created_at":"2022-03-09T08:04:20.000000Z","updated_at":"2022-03-09T08:04:20.000000Z"},
-				
-				{"id":3,"form_id":1,"type":"text","data":"Question 2","active":1,"deleted":0,"changed":0,"created_at":"2022-03-09T08:04:20.000000Z","updated_at":"2022-03-09T08:04:20.000000Z"},
-				
-				{"id":4,"form_id":1,"type":"text","data":"Question 3","active":1,"deleted":0,"changed":0,"created_at":"2022-03-09T08:04:20.000000Z","updated_at":"2022-03-09T08:04:20.000000Z"},
-				
-				{"id":5,"form_id":1,"type":"text","data":"Question 4","active":1,"deleted":0,"changed":0,"created_at":"2022-03-09T08:04:20.000000Z","updated_at":"2022-03-09T08:04:20.000000Z"}
-			]
-		]
-
-/api/v2/getAnswers/{id}:
-	Returns a JSON with answers with the associated id
-	
-/api/v2/getFormAll
-	Returns a JSON with all forms
-	
-/api/v2/getUserForms/{user_id}
-	Returns a JSON with all answers of user user_id
-	
-/api/v2/geUserFormLatest/{user_id}
-	Returns a JSON with latest Form filled in
-
-/api/v2/saveFormAnswers
-	Saves the answers, Expects: user_id, form_id, Answers in a array
-	Example:
-		{
-			"It went well.",
-			
-			"5",
-			
-			"-",
-			
-			"I learned a lot."
-		}
