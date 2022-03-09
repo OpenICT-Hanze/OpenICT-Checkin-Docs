@@ -109,8 +109,11 @@ V2
 	Saves the answers, Expects: user_id, form_id, Answers in a array
 	Example:
 		{
-			"Het ging goed",
+			"It went well.",
+			
 			"5",
+			
 			"-",
-			"Ik heb veel geleerd"
+			
+			"I learned a lot."
 		}
