@@ -58,14 +58,16 @@ V1
 	Expects:
 		user_id -> The id of the user who answered the form.
 		form_id -> The id of the form that is filled in.
-		array_answers -> An array of the answers in string format. 
+		array_answers -> An array of the answers in JSON format. 
 			Example:
 				{
-					"5",
+				
+    					"user_id": "1",
 					
-					"My day went well",
+    					"form_id": "1",
 					
-					"colleagues were nice"
+    					"array_answers" : {"boe": "hallo"}
+					
 				}
 
 /api/v1/getQuestionAll:
