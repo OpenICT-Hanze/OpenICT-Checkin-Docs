@@ -112,6 +112,10 @@ V1
 /api/v1/getDailyCreatedAtBet:
 	Returns a JSON with the created_at date that's between two provided dates.
 	
+	Example :
+	http://localhost/OpenICT-Checkin/public/api/v1/getDailyCreatedAtBet/2022-03-14 10:21:28/2022-03-14 10:37:14
+	The dates being used are pulled from the database in the table 'answers' under collum 'created_at'
+	
 .. _v2:
 V2
 --------
