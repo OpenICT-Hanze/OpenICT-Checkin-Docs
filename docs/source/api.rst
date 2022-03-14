@@ -62,8 +62,8 @@ V1
 /api/v1/getAnswerAll:
 	Returns a JSON with all answres written.
 	
-/api/v1/getFormAnswers/{id}:
-	Returns a JSON with the answers in the row id.
+/api/v1/getFormAnswers/{form_id}:
+	Returns a JSON with the answers in the row form_id.
 	
 /api/v1/getAnswersByFormUser/{form_id}/{user_id}:
 	Returns a JSON of the answers on basis of form_id and user_id
