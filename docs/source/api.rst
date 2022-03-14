@@ -88,8 +88,17 @@ V1
 /api/v1/getAnswersQuestionOne:
 	Returns a JSON with answers of question one of the daily-checkin
 
-/api/v1/getAllAnswersQuestionOne
+/api/v1/getAllAnswersQuestionOne:
 	Returns a JSON with all answers of question one per user
+	
+/api/v1/getDailyCreatedAtLo:
+	Returns a JSON with the created_at date lower than provided date.
+	
+/api/v1/getDailyCreatedAtHi:
+	Returns a JSON with the created_at date higher than provided date.
+
+/api/v1/getDailyCreatedAtBet:
+	Returns a JSON with the created_at date that's between two provided dates.
 	
 .. _v2:
 V2
