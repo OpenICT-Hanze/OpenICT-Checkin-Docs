@@ -23,8 +23,20 @@ V1
 /api/v1/getUser/{id}:
 	Returns a JSON with the user associated with id.
 	
-/api/v1/setUser:
-	Functiionality not written.
+/api/v1/addUser:
+	Expects : name, email, password and role
+	Example: 
+	{
+	
+	    "name": "John Doe",
+	    
+	    "email": "a@a.a",
+	    
+	    "password": "password",
+	    
+	    "role": 1
+	    
+	}
 
 /api/v1/getUserForms/{user_id}:
 	Returns a JSON with all answers of user user_id.
