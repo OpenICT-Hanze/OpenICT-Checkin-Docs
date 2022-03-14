@@ -53,6 +53,9 @@ V1
 /api/v1/getFormAnswers/{id}:
 	Returns a JSON with the answers in the row id.
 	
+/api/v1/getAnswersByFormUser/{form_id}/{user_id}:
+	Returns a JSON of the answers on basis of form_id and user_id
+	
 /api/v1/saveFormAnswers:
 	Saves the answers in the database.
 	Expects:
