@@ -95,6 +95,8 @@ POST ``/api/v1/editAccount``
 			"q1": {
 			
 			    "type": "text",
+			
+			    "data": "text",
 			    
 			    "title": "Hoe was je dag vandaag?"
 			    
@@ -102,9 +104,11 @@ POST ``/api/v1/editAccount``
 			
 			"q2": {
 			
-			    "type": "text",
+			    "type": "radio",
+			
+			    "data": "1-5",
 			    
-			    "title": "Hoeveel heb je geleerd?"
+			    "title": "Rate je dag."
 			    
 			}
 			
