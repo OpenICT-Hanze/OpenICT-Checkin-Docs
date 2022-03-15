@@ -185,20 +185,43 @@ POST ``/api/v1/editAccount``
     	"title": "Question 2 test",
 	"data": "1-5"
     	}
+		Example: 
+		{
+
+		    "id": "2",
+
+		    "title": "Question 2 test",
+
+		    "data": "1-5",
+
+		}
 	
 /api/v1/createQuestion
 	Allows the user to create a new question in the database. Only allowed by admin user.
 	expects:
-		form-id > The id of the form (Daily or weekly)
-		qdata > Data of question
-		title > Title of the question
-		type > Type of the question (Text, radio or slider)
+		form-id -> The id of the form (Daily or weekly)
+		qdata -> Data of question
+		title -> Title of the question
+		type -> Type of the question (Text, radio or slider)
+	
 	Example:
 	{"form_id":"1",
     	"qdata": "test data",
     	"title": "test title",
     	"type": "Text"
     	}
+		Example: 
+		{
+
+		    "form_id": "1",
+
+		    "qdata": "test data",
+
+		    "title": "test title",
+
+		    "type": "text"
+
+		}
 .. _v2:
 V2
 --------
