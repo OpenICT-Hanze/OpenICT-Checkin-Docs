@@ -82,7 +82,7 @@ V1
 			
 			    "type": "text",
 			    
-			    "title": "wat is de lengte van een gemiddelde banaan?"
+			    "title": "Hoe was je dag vandaag?"
 			    
 			},
 			
@@ -90,7 +90,7 @@ V1
 			
 			    "type": "text",
 			    
-			    "title": "wat is de lengte van een gemiddelde banaan?"
+			    "title": "Hoeveel heb je geleerd?"
 			    
 			}
 			
