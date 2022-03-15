@@ -173,8 +173,32 @@ POST ``/api/v1/editAccount``
     "date1" : "2022-03-14 10:22:00",
     "date2" : "2022-03-14 10:37:13"}
     
-    
+ /api/v1/editQuestion:
+	Allows the user to edit a question title in the questions table of database. Only allowed by admin user.
+	Expects:
+		id > The id of the question.
+		title > Title of the question.
+		data > Data of the question.
+		
+	Example:
+	{"id":"2",
+    	"title": "Question 2 test",
+	"data": "1-5"
+    	}
 	
+/api/v1/createQuestion
+	Allows the user to create a new question in the database. Only allowed by admin user.
+	expects:
+		form-id > The id of the form (Daily or weekly)
+		qdata > Data of question
+		title > Title of the question
+		type > Type of the question (Text, radio or slider)
+	Example:
+	{"form_id":"1",
+    	"qdata": "test data",
+    	"title": "test title",
+    	"type": "Text"
+    	}
 .. _v2:
 V2
 --------
