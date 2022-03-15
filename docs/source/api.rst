@@ -22,7 +22,21 @@ V1
 	
 /api/v1/getUser/{id}:
 	Returns a JSON with the user associated with id.
-	
+
+POST ``/api/v1/editAccount``
+	Changes the user account based on the given information. Requires all values, empty values will not be changed ``""``.
+	The following example will change the email address of the user id ``1``.
+
+	>>> class WordCounter(Document):
+    ...
+    ...     {
+	...         "id":1,
+	...         "name": "",
+	...         "email": "admin@admin.admin",
+	...         "password": ""
+	...     }
+
+
 /api/v1/addUser:
 	Expects : name, email, password and role
 	Example: 
