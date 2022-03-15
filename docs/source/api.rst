@@ -180,11 +180,7 @@ POST ``/api/v1/editAccount``
 		title > Title of the question.
 		data > Data of the question.
 		
-	Example:
-	{"id":"2",
-    	"title": "Question 2 test",
-	"data": "1-5"
-    	}
+
 		Example: 
 		{
 
@@ -204,12 +200,7 @@ POST ``/api/v1/editAccount``
 		title -> Title of the question
 		type -> Type of the question (Text, radio or slider)
 	
-	Example:
-	{"form_id":"1",
-    	"qdata": "test data",
-    	"title": "test title",
-    	"type": "Text"
-    	}
+
 		Example: 
 		{
 
