@@ -50,7 +50,7 @@ V1
 /api/v1/assignRole
 	Edits the role of the provided user to the provided role. Can only be done by admins through the admin middleware.
 	Expects: user_id, role
-	Exampls: 
+	Example: 
 		{
 		
 		    "user_id": "13",
@@ -68,8 +68,35 @@ V1
 /api/v1/getDaily:
 	Returns a JSON with the daily check-in form (form_id 1).
 	
-/api/v1/setForm:
-	Functiionality not written.
+/api/v1/postForm:
+	Adds a new entry to the forms and questions table
+	Expects: form title as title, questions in a json array as questions.(the name of the question itself is inconsequential)
+	Example:
+		{
+		
+		    "title": "bah",
+		    
+		    "questions":{
+		    
+			"q1": {
+			
+			    "type": "text",
+			    
+			    "title": "wat is de lengte van een gemiddelde banaan?"
+			    
+			},
+			
+			"q2": {
+			
+			    "type": "text",
+			    
+			    "title": "wat is de lengte van een gemiddelde banaan?"
+			    
+			}
+			
+		    }
+		    
+		}
 
 /api/v1/getAnswerAll:
 	Returns a JSON with all answres written.
@@ -105,9 +132,6 @@ V1
 	
 /api/v1/editQuestion/{id}:
 	Functiionality not written.
-
-/api/v1/putDaily:
-	Creates a basic answer sheet
 	
 /api/v1/getAnswersQuestionOne:
 	Returns a JSON with answers of question one of the daily-checkin
