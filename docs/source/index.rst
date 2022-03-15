@@ -19,3 +19,4 @@ Contents
    installation
    database
    api
+   tests
