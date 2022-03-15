@@ -125,8 +125,13 @@ V1
 	Returns a JSON with the created_at date that's between two provided dates.
 	
 	Example :
-	http://localhost/OpenICT-Checkin/public/api/v1/getDailyCreatedAtBet/2022-03-14 10:21:28/2022-03-14 10:37:14
-	The dates being used are pulled from the database in the table 'answers' under collum 'created_at'
+	In postman create a request, get the following raw data in JSON format :
+	{"user_id" : "1",
+    "form_id" : "1",
+    "date1" : "2022-03-14 10:22:00",
+    "date2" : "2022-03-14 10:37:13"}
+    
+    
 	
 .. _v2:
 V2
