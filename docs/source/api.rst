@@ -47,6 +47,18 @@ V1
 /api/v1/geUserDailyLatest/{user_id}:
 	Returns a JSON with the answers of user user_id of the daily check-in form (form_id 1).
 	
+/api/v1/assignRole
+	Edits the role of the provided user to the provided role. Can only be done by admins through the admin middleware.
+	Expects: user_id, role
+	Exampls: 
+		{
+		
+		    "user_id": "13",
+		    
+		    "role": "1"
+		    
+		}
+
 /api/v1/getFormAll:
 	Returns a JSON with all forms
 
