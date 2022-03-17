@@ -221,11 +221,11 @@ createCompetentie
 		
 	Example: 
 	
-	{
-	
-    		"name": "backend developer"
-		
-	}
+		{
+
+			"name": "backend developer"
+
+		}
 		
 editCompetentie
 	Edits an existing competentie, Only allowed by admin.
@@ -234,13 +234,13 @@ editCompetentie
 		id: of the competentie
 	Example:
 	
-	{
-	
-    		"id": 1,
-		
-    		"name": "backend deloper"
-		
-	}
+		{
+
+			"id": 1,
+
+			"name": "backend deloper"
+
+		}
 		
 delCompetentie
 	Removes an existing competentie, Only allowed by admin.
@@ -248,11 +248,11 @@ delCompetentie
 		id: of the competentie
 	Example:
 	
-	{
-	
-		"id": 1
-		
-	}
+		{
+
+			"id": 1
+
+		}
 		
 getAllCompetenties
 	Returns all competenties
@@ -268,13 +268,13 @@ addCompetentieToUser
 		
 	Example:
 	
-	{
-	
-		"user_id": 1,
-		
-		"competentie_id": 3
-		
-	}
+		{
+
+			"user_id": 1,
+
+			"competentie_id": 3
+
+		}
 
 delCompetentieToUser
 	Removes a competentie from a user
@@ -283,53 +283,53 @@ delCompetentieToUser
 	
 	Example:
 	
-	{
-	
-		"id": 1
-		
-	}
+		{
+
+			"id": 1
+
+		}
 
 getAllCompetentiesOfAllUsers
 	Returns arrays of competenties connected to users
 	Example:
-	{
-	    "1": [
 		{
-		    "id": 3,
-		    "competentie_id": 3,
-		    "user_id": 1,
-		    "created_at": "2022-03-17T11:26:41.000000Z",
-		    "updated_at": "2022-03-17T11:26:41.000000Z",
-		    "name": "backend developer"
-		},
-		{
-		    "id": 2,
-		    "competentie_id": 2,
-		    "user_id": 1,
-		    "created_at": "2022-03-17T11:09:51.000000Z",
-		    "updated_at": "2022-03-17T11:09:51.000000Z",
-		    "name": "frontend developer"
+		    "1": [
+			{
+			    "id": 3,
+			    "competentie_id": 3,
+			    "user_id": 1,
+			    "created_at": "2022-03-17T11:26:41.000000Z",
+			    "updated_at": "2022-03-17T11:26:41.000000Z",
+			    "name": "backend developer"
+			},
+			{
+			    "id": 2,
+			    "competentie_id": 2,
+			    "user_id": 1,
+			    "created_at": "2022-03-17T11:09:51.000000Z",
+			    "updated_at": "2022-03-17T11:09:51.000000Z",
+			    "name": "frontend developer"
+			}
+		    ],
+		    "186": [
+			{
+			    "id": 3,
+			    "competentie_id": 3,
+			    "user_id": 186,
+			    "created_at": "2022-03-17T11:26:41.000000Z",
+			    "updated_at": "2022-03-17T11:26:41.000000Z",
+			    "name": "backend developer"
+			},
+			{
+			    "id": 2,
+			    "competentie_id": 2,
+			    "user_id": 186,
+			    "created_at": "2022-03-17T11:09:51.000000Z",
+			    "updated_at": "2022-03-17T11:09:51.000000Z",
+			    "name": "frontend developer"
+			}
+		    ]
 		}
-	    ],
-	    "186": [
-		{
-		    "id": 3,
-		    "competentie_id": 3,
-		    "user_id": 186,
-		    "created_at": "2022-03-17T11:26:41.000000Z",
-		    "updated_at": "2022-03-17T11:26:41.000000Z",
-		    "name": "backend developer"
-		},
-		{
-		    "id": 2,
-		    "competentie_id": 2,
-		    "user_id": 186,
-		    "created_at": "2022-03-17T11:09:51.000000Z",
-		    "updated_at": "2022-03-17T11:09:51.000000Z",
-		    "name": "frontend developer"
-		}
-	    ]
-	}
 
 getCompetentiesByUser
 
