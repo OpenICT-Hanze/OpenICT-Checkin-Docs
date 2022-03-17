@@ -213,6 +213,127 @@ POST ``/api/v1/editAccount``
 		    "type": "text"
 
 		}
+		
+createCompetentie
+	Creates a new competentie, Only allowed by admin.
+	expects:
+		name: the name of the competentie
+		
+	Example: 
+	
+	{
+	
+    		"name": "backend developer"
+		
+	}
+		
+editCompetentie
+	Edits an existing competentie, Only allowed by admin.
+	expects:
+		name: the new name of the competentie
+		id: of the competentie
+	Example:
+	
+	{
+	
+    		"id": 1,
+		
+    		"name": "backend deloper"
+		
+	}
+		
+delCompetentie
+	Removes an existing competentie, Only allowed by admin.
+	expects:
+		id: of the competentie
+	Example:
+	
+	{
+	
+		"id": 1
+		
+	}
+		
+getAllCompetenties
+	Returns all competenties
+	
+getCompetentieById
+	Returns the specific competentie
+
+addCompetentieToUser
+	Adds a competentie to a User
+	Expects:
+		user_id,
+		competentie_id
+		
+	Example:
+	
+	{
+	
+		"user_id": 1,
+		
+		"competentie_id": 3
+		
+	}
+
+delCompetentieToUser
+	Removes a competentie from a user
+	Expects:
+		id
+	
+	Example:
+	
+	{
+	
+		"id": 1
+		
+	}
+
+getAllCompetentiesOfAllUsers
+	Returns arrays of competenties connected to users
+	Example:
+	{
+	    "1": [
+		{
+		    "id": 3,
+		    "competentie_id": 3,
+		    "user_id": 1,
+		    "created_at": "2022-03-17T11:26:41.000000Z",
+		    "updated_at": "2022-03-17T11:26:41.000000Z",
+		    "name": "backend developer"
+		},
+		{
+		    "id": 2,
+		    "competentie_id": 2,
+		    "user_id": 1,
+		    "created_at": "2022-03-17T11:09:51.000000Z",
+		    "updated_at": "2022-03-17T11:09:51.000000Z",
+		    "name": "frontend developer"
+		}
+	    ],
+	    "186": [
+		{
+		    "id": 3,
+		    "competentie_id": 3,
+		    "user_id": 186,
+		    "created_at": "2022-03-17T11:26:41.000000Z",
+		    "updated_at": "2022-03-17T11:26:41.000000Z",
+		    "name": "backend developer"
+		},
+		{
+		    "id": 2,
+		    "competentie_id": 2,
+		    "user_id": 186,
+		    "created_at": "2022-03-17T11:09:51.000000Z",
+		    "updated_at": "2022-03-17T11:09:51.000000Z",
+		    "name": "frontend developer"
+		}
+	    ]
+	}
+
+getCompetentiesByUser
+
+
 .. _v2:
 V2
 --------
