@@ -235,11 +235,8 @@ editCompetentie
 	Example:
 	
 		{
-
 			"id": 1,
-
 			"name": "backend deloper"
-
 		}
 		
 delCompetentie
