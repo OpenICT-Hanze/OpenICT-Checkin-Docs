@@ -214,7 +214,7 @@ POST ``/api/v1/editAccount``
 
 		}
 		
-createCompetentie
+/api/v1/createCompetentie
 	Creates a new competentie, Only allowed by admin.
 	expects:
 		name: the name of the competentie
@@ -227,7 +227,7 @@ createCompetentie
 
 		}
 		
-editCompetentie
+/api/v1/editCompetentie
 	Edits an existing competentie, Only allowed by admin.
 	expects:
 		name: the new name of the competentie
@@ -235,11 +235,14 @@ editCompetentie
 	Example:
 	
 		{
+		
 			"id": 1,
+			
 			"name": "backend deloper"
+			
 		}
 		
-delCompetentie
+/api/v1/delCompetentie
 	Removes an existing competentie, Only allowed by admin.
 	expects:
 		id: of the competentie
@@ -251,14 +254,14 @@ delCompetentie
 
 		}
 		
-getAllCompetenties
+/api/v1/getAllCompetenties
 	Returns all competenties
 	
-getCompetentieById
+/api/v1/getCompetentieById
 	Returns the specific competentie
 
-addCompetentieToUser
-	Adds a competentie to a User
+/api/v1/addCompetentieToUser
+	Adds a competentie to a User, Only allowed by admin user.
 	Expects:
 		user_id,
 		competentie_id
@@ -273,8 +276,8 @@ addCompetentieToUser
 
 		}
 
-delCompetentieToUser
-	Removes a competentie from a user
+/api/v1/delCompetentieToUser
+	Removes a competentie from a user, Only allowed by admin user.
 	Expects:
 		id
 	
@@ -286,50 +289,87 @@ delCompetentieToUser
 
 		}
 
-getAllCompetentiesOfAllUsers
-	Returns arrays of competenties connected to users
+/api/v1/getAllCompetentiesOfAllUsers
+	Returns arrays of competenties connected to users, Only allowed by admin user.
 	Example:
 		{
+		
 		    "1": [
+		    
 			{
+			
 			    "id": 3,
+			    
 			    "competentie_id": 3,
+			    
 			    "user_id": 1,
+			    
 			    "created_at": "2022-03-17T11:26:41.000000Z",
+			    
 			    "updated_at": "2022-03-17T11:26:41.000000Z",
+			    
 			    "name": "backend developer"
+			    
 			},
+			
 			{
+			
 			    "id": 2,
+			    
 			    "competentie_id": 2,
+			    
 			    "user_id": 1,
+			    
 			    "created_at": "2022-03-17T11:09:51.000000Z",
+			    
 			    "updated_at": "2022-03-17T11:09:51.000000Z",
+			    
 			    "name": "frontend developer"
+			    
 			}
+			
 		    ],
+		    
 		    "186": [
+		    
 			{
+			
 			    "id": 3,
+			    
 			    "competentie_id": 3,
+			    
 			    "user_id": 186,
+			    
 			    "created_at": "2022-03-17T11:26:41.000000Z",
+			    
 			    "updated_at": "2022-03-17T11:26:41.000000Z",
+			    
 			    "name": "backend developer"
+			    
 			},
+			
 			{
+			
 			    "id": 2,
+			    
 			    "competentie_id": 2,
+			    
 			    "user_id": 186,
+			    
 			    "created_at": "2022-03-17T11:09:51.000000Z",
+			    
 			    "updated_at": "2022-03-17T11:09:51.000000Z",
+			    
 			    "name": "frontend developer"
+			    
 			}
+			
 		    ]
+		    
 		}
 
-getCompetentiesByUser
-
+/api/v1/getCompetentiesByUser
+	returns a list of competenties that are connected to the user
 
 .. _v2:
 V2
