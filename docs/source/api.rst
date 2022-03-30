@@ -372,7 +372,7 @@ POST ``/api/v1/editAccount``
 	returns a list of competenties that are connected to the user
 
 /api/v1/editUserData
-Allows an admin user to edit/update the data collumn of the user table.
+	Allows an admin user to edit/update the data collumn of the user table.
 	Example:
 		{
 			
@@ -384,10 +384,10 @@ Allows an admin user to edit/update the data collumn of the user table.
 			}	
 
 /api/v1/checkFilledIn/{user_id}/{form_id}
-Checks the database if a daily check-in has been filled in already or not. The 'ProfileController' handles this API and returns a warning message if the check-in has been filled in.
+	Checks the database if a daily check-in has been filled in already or not. The 'ProfileController' handles this API 	and returns a warning message if the check-in has been filled in.
 
 /api/v1/getUserProjects/{user_id}
-Returns a list of all projects per user.
+	Returns a list of all projects per user.
 
 .. _v2:
 V2
