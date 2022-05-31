@@ -386,8 +386,104 @@ POST ``/api/v1/editAccount``
 /api/v1/checkFilledIn/{user_id}/{form_id}
 	Checks the database if a daily check-in has been filled in already or not. The 'ProfileController' handles this API 	and returns a warning message if the check-in has been filled in.
 
-/api/v1/getUserProjects/{user_id}
-	Returns a list of all projects per user.
+-----------------------
+Vanaf hier voeg ik de documentatie toe van de nieuwe functionaliteiten die aanwezig zijn. De routes die hier boven beschreven staan heb ik nog niet nagekeken dus ik weet niet of deze accuraat zijn. ~ Alex
+-----------------------
+
+/api/v1/getProjectsByUser/{user_id}
+	Returns a list of projects connected to a specific user.
+
+/api/v1/newProject
+	Allows an admin user to create a new Project.
+	Requires:
+		name: the name of the project.
+		description: a small description of the project.
+		
+	Example: 
+	
+		{
+
+			"name": "Check-In Website & Applicatie",
+			"description": "Hier komt een algemene beschrijving"
+
+		}
+		
+/api/v1/newUserProject
+	Allows an admin user to connect an user to an existing project.
+	Requires:
+		project_id: The id of the project
+		user_id: The id of the user
+	
+/api/v1/editProject
+	Allows an admin user to edit an existing project name and description.
+	Requires:
+		name: the name of the project.
+		description: a small description of the project.
+		id: the id of the project you want to edit.
+
+/api/v1/getProjectByID/{id}
+	Returns an array of the values of the relevant project.
+	
+/api/v1/getProjectIdByUserId/{user_id}
+	Returns an array of information of the project connected to a specific user.
+	
+	Example: If admin is connected to project 1 (Check-In) this function will return this project.
+
+/api/v1/getAllProjects
+	Returns array values of all present projects.
+	
+/api/v1/deleteProject/{id}
+	Allows an admin user to delete a certain project, which is selected by ID.
+	
+/api/v1/getAllJobroles
+	Returns an array of all existing jobroles
+
+/api/v1/getJobRolesByUser/{user_id}
+	Returns an array value of all jobroles connected to a specific user.
+
+/api/v1/deleteUser/{id}
+	Allows an user to COMPLETELY delete an existing user from the database. 
+	
+/api/v1/deleteJobRole/{id}
+	Allows an user to delete a specific Jobrole from the database.
+
+/api/v1/addJobrole
+	Allows an user to connect an user to a jobrole
+	Requires:
+		user_id: ID of the user u want to add the jobrole to.
+		jobrole_id: the ID of the specific jobrole you want to add to the user.
+		
+/api/v1/newNotification
+	Allows the application to create a new notification.
+	Requires:
+		user_id: ID of the user.
+		type: Type of notification
+		data: Data/description of the notification
+		
+/api/v1/getAllNotifications
+	Returns an array of values of all existing notifications.
+	
+/api/v1/getNotificationDetails/{id}
+	Returns an array of details of a specific notification.
+	Requires:
+		ID: ID of the specific notification.
+		
+/api/v1/getNotificationType/{id}
+	Returns an array with the 'type' value of a specific notification.
+	Requires:
+		ID: ID of the specific notification.
+		
+/api/v1/getAmountOfNotifications
+	Returns the total amount of existing notifications.
+
+/api/v1/delNotification/{id}
+	Allows an user to delete an existing notification.
+	
+/api/v1/getJobRolesByUser/{user_id}
+	Returns an array of all jobroles connected to a specific user.
+	Requires:
+		user_id: ID of the specific user.
+
 
 .. _v2:
 V2
