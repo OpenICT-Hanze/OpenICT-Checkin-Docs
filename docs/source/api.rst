@@ -8,9 +8,62 @@ There are 2 API versions available, until further notice only v1 is being used. 
 V1
 --------
 
+/api/v1/sanctum/token:
+	Functionality that checks if the user filled in the right login credentials, if that's the case, a token will be created and added to the User table.
+	Requires:
+		E-mail
+		Password
+		Device_name
+
+/api/v1/sanctum/logout:
+	Functionality that logs out an user.
+	
+/api/v1/user:
+	Returns the current logged in user.
+
+/api/v1/postFormApi:
+	Functionality that posts the filled in Form data to the database.
+	Requires:
+		user_id
+		form_id
+		questions_array
+		questions_text
+		array_answers
+		
+/api/v1/getUserFormsRecent/{user_id}:
+	Returns the latest answer sheet of a filled in form of a specific user.
+
+/api/v1/getDailyWeekBetween/{user_id}/{from}/{to}:
+	Returns an answer sheet that has been submitted between the given timestamps.
+
+/api/v1/getUserFormsMonth/{user_id}: <<<<<< Geen idee wat dit precies moet doen, returned ook geen values op postman bij mij >>>>>>>>>
+
+/api/v1/updateAnswer:
+	Allows an user to update their answer sheet.
+	Requires:
+		id
+		question_array
+		question_text
+		array_answers
+
+/api/v1/getTotalDaily/{user_id}:
+	Returns the total amount of daily check-ins of a specific user.
+
+/api/v1/getTotalWeekly/{user_id}:
+	Returns the total amount of weekly check-ins of a specific user.
+	
+/api/v1/getTotalHoursByUser/{user_id}:
+	Returns the total amount of hours filled in by a specific user.
+	
+/api/v1/getTotalHoursBetweenByUser/{user_id}/{from}/{to}:
+	Returns the total amount of hours filled in by a specific user between two dates.
+
 /api/v1/getVersion: 
 	Returns a JSON with the used version.
 
+/api/v1/testAdmin:
+	Returns a 'works' value.
+	
 /api/v1/getUserAll
 	Returns a JSON with all users.
 	
@@ -19,6 +72,24 @@ V1
 
 /api/v1/getUserStudents:
 	Returns a JSON with all users who have their role set as 0.
+	
+/api/v1/getConnectedUsers/{docent_id}:
+	Returns a JSON with all users/students connected to a specific docent.
+
+/api/v1/getAllProjectsOfMyStudents/{docent_id}:
+	Returns a JSON with all projects of students connected to a specific docent.
+
+/api/v1/getAllAnswersOfMyStudents/{docent_id}:
+	Returns all answer sheets of students connected to a specific docent.
+
+/api/v1/getAllStudentsNotMine/{docent_id}:
+	Returns all users that are not connected to a specific docent.
+
+/api/v1/removeLinkToStudent/{student_id}:
+	Allows an user to remove a student from their group/ unlink
+
+/api/v1/connectToStudent/{docent_id}/{student_id}:
+	Allows a docent to connect a student to himself.
 	
 /api/v1/getUser/{id}:
 	Returns a JSON with the user associated with id.
@@ -52,6 +123,14 @@ POST ``/api/v1/editAccount``
 
 		}
 
+/api/v1/editAnswer:
+	Allows an user to edit their Answer sheet.
+	Requires:
+		id
+		question_array
+		question_text
+		question_answers
+		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 /api/v1/getUserForms/{user_id}:
 	Returns a JSON with all answers of user user_id.
 	
