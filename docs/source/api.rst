@@ -125,12 +125,20 @@ POST ``/api/v1/editAccount``
 
 /api/v1/editAnswer:
 	Allows an user to edit their Answer sheet.
-	Requires:
+	Requires
 		id
 		question_array
 		question_text
 		question_answers
-		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+/api/v1/editForm:
+	Allows an user to edit a form.
+	Requires
+		id
+		title
+		questions_array
+		active
+
 /api/v1/getUserForms/{user_id}:
 	Returns a JSON with all answers of user user_id.
 	
@@ -160,6 +168,9 @@ POST ``/api/v1/editAccount``
 	
 /api/v1/getDaily:
 	Returns a JSON with the daily check-in form (form_id 1).
+
+/api/v1/getWeekly:
+	Returns a JSON with the weekly check-in form (form_id 2)
 	
 /api/v1/postForm:
 	Adds a new entry to the forms and questions table
@@ -196,7 +207,10 @@ POST ``/api/v1/editAccount``
 		}
 
 /api/v1/getAnswerAll:
-	Returns a JSON with all answres written.
+	Returns a JSON with all answers written.
+	
+/api/v1/getAnswerById/{id}:
+	Returns a JSON of all answers by id.
 	
 /api/v1/getFormAnswers/{form_id}:
 	Returns a JSON with the answers in the row form_id.
@@ -227,13 +241,16 @@ POST ``/api/v1/editAccount``
 /api/v1/getQuestion/{id}:
 	Returns a JSON with Question id.
 	
-/api/v1/editQuestion/{id}:
-	Functiionality not written.
+/api/v1/deleteAnswer/{id}:
+	Allows an user to delete an answer.
+
+/api/v1/putDaily:
+	Functionality that creates fake answer data.
 	
 /api/v1/getAnswersQuestionOne:
 	Returns a JSON with answers of question one of the daily-checkin
 
-/api/v1/getAllAnswersQuestionOne:
+/api/v1/getAllAnswersQuestionOne/{user_id}:
 	Returns a JSON with all answers of question one per user
 	
 /api/v1/getDailyCreatedAtLo:
@@ -242,8 +259,8 @@ POST ``/api/v1/editAccount``
 /api/v1/getDailyCreatedAtHi:
 	Returns a JSON with the created_at date higher than provided date.
 
-/api/v1/getDailyCreatedAtBet:
-	Returns a JSON with the created_at date that's between two provided dates.
+/api/v1/getDailyCreatedAtBetweenUser/{from}/{to}/{user_id}
+	Returns a JSON with the created_at date that's between two provided dates by a specific user.
 	
 	Example :
 	In postman create a request, get the following raw data in JSON format :
@@ -251,6 +268,9 @@ POST ``/api/v1/editAccount``
     "form_id" : "1",
     "date1" : "2022-03-14 10:22:00",
     "date2" : "2022-03-14 10:37:13"}
+    
+ /api/v1/getTotalUsers:
+ 	Returns a JSON with all users.
     
  /api/v1/editQuestion:
 	Allows the user to edit a question title in the questions table of database. Only allowed by admin user.
@@ -293,7 +313,21 @@ POST ``/api/v1/editAccount``
 
 		}
 		
-/api/v1/createCompetentie
+/api/v1/editCompetentieNiveau:
+	Allows an user to edit a competentie niveau.
+	Requires:
+		user_id
+		competentie_id
+		niveau
+
+/api/v1/editCompetentieDoel:
+	Allows an user to edit their competentie doel.
+	Requires:
+		user_id
+		competentie_id
+		doel
+
+
 	Creates a new competentie, Only allowed by admin.
 	expects:
 		name: the name of the competentie
@@ -336,7 +370,7 @@ POST ``/api/v1/editAccount``
 /api/v1/getAllCompetenties
 	Returns all competenties
 	
-/api/v1/getCompetentieById
+/api/v1/getCompetentieById/{competentie_id}
 	Returns the specific competentie
 
 /api/v1/addCompetentieToUser
@@ -447,8 +481,11 @@ POST ``/api/v1/editAccount``
 		    
 		}
 
-/api/v1/getCompetentiesByUser
+/api/v1/getCompetentiesByUser/{comp_id}/{user_id}:
 	returns a list of competenties that are connected to the user
+
+/api/v1/getAllCompetentieByUser/{comp_id}/{user_id}:
+	returns all competenties by user.
 
 /api/v1/editUserData
 	Allows an admin user to edit/update the data collumn of the user table.
@@ -464,10 +501,6 @@ POST ``/api/v1/editAccount``
 
 /api/v1/checkFilledIn/{user_id}/{form_id}
 	Checks the database if a daily check-in has been filled in already or not. The 'ProfileController' handles this API 	and returns a warning message if the check-in has been filled in.
-
------------------------
-Vanaf hier voeg ik de documentatie toe van de nieuwe functionaliteiten die aanwezig zijn. De routes die hier boven beschreven staan heb ik nog niet nagekeken dus ik weet niet of deze accuraat zijn. ~ Alex
------------------------
 
 /api/v1/getProjectsByUser/{user_id}
 	Returns a list of projects connected to a specific user.
