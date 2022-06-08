@@ -34,6 +34,7 @@ V1
 	Returns the latest answer sheet of a filled in form of a specific user.
 
 /api/v1/getDailyWeekBetween/{user_id}/{from}/{to}:
+	from and to need to be a date written as: yyyy-mm-dd
 	Returns an answer sheet that has been submitted between the given timestamps.
 
 /api/v1/getUserFormsMonth/{user_id}: <<<<<< Geen idee wat dit precies moet doen, returned ook geen values op postman bij mij >>>>>>>>>
