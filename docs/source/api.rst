@@ -81,7 +81,7 @@ V1
 	Returns a JSON with all projects of students connected to a specific docent.
 
 /api/v1/getAllAnswersOfMyStudents/{docent_id}:
-	Returns all answer sheets of students connected to a specific docent.
+	Returns all answers of students connected to a specific docent.
 
 /api/v1/getAllStudentsNotMine/{docent_id}:
 	Returns all users that are not connected to a specific docent.
