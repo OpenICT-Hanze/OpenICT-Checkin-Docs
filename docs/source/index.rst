@@ -18,7 +18,7 @@ Contents
    environment
    installation
    database
-   release-notes
+   releasenotes
    api
    tests
    auth
