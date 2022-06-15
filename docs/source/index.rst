@@ -19,6 +19,7 @@ Contents
    installation
    database
    releasenotes
+   deliverables
    api
    tests
    auth
