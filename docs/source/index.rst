@@ -20,7 +20,7 @@ Contents
    database
    releasenotes
    deliverables
-   Uitleg-functies
+   uitleg-functies
    api
    tests
    auth
