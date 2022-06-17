@@ -1,7 +1,7 @@
 Deliverables
 ===================================
 
-Hier komen de deliverables
+Hier komen de deliverables te staan.
 
 Hier kan je de download vinden voor het implementatie plan in PDF vorm :
 
