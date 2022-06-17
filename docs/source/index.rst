@@ -23,4 +23,3 @@ Contents
    api
    tests
    auth
-   test
