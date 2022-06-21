@@ -1,8 +1,6 @@
 Deliverables
 ===================================
 
-Hier komen de deliverables te staan.
-
 -------
 Implementatie plan
 -------
