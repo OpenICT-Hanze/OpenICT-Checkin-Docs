@@ -7,4 +7,4 @@ Hier kan je de download vinden voor het implementatie plan in PDF vorm :
 
     * `PDF`_ 
     
-.. _PDF: images/ImplementatieplanOpen-ICT.pdf
+.. _PDF: images/Implementatieplan.pdf
