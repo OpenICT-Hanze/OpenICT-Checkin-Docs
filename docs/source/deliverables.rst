@@ -18,7 +18,8 @@ Het stappen plan voor de implementatie is als volgt :
  
 Implementatie plan
 Alle stappen moeten succesvol uitgevoerd worden. Wanneer dit niet het geval is of wanneer er bevindingen zijn gemaakt, volg dan stappenplan 1.2:
-Stappenplan 1.1.0
+Stappenplan 1.1.0.
+-------
 - Stap 1.1.1: Vraag of alle functionaliteiten in de productie branch gemerged is.
 - Stap 1.1.2: Indien niet alle functionaliteiten toegevoegd zijn, zorg ervoor dat i-edereen deze toevoegd.
 - Stap 1.1.3: Update de desbetreffende branch zodat alle nieuwe functionaliteiten mee genomen zijn.
