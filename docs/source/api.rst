@@ -59,6 +59,18 @@ V1
 /api/v1/getTotalHoursBetweenByUser/{user_id}/{from}/{to}:
 	Returns the total amount of hours filled in by a specific user between two dates.
 
+/api/v1/getHoursPerDayWeek/{user_id}/{from}/{to}
+	Returns the amount of hours filled in by a specific user sorted per answersheet between two dates.
+	
+/api/v1/getHoursPerDay{user_id}
+	returns the amount of hours filled in by a specific user per answersheet
+	
+/api/v1/getTotalHoursBetweenTotal/{from}/{to}
+	returns total amount of hours filled in between two dates
+	
+/api/v1/user
+	returns all users
+	
 /api/v1/getVersion: 
 	Returns a JSON with the used version.
 
@@ -86,6 +98,9 @@ V1
 /api/v1/getAllStudentsNotMine/{docent_id}:
 	Returns all users that are not connected to a specific docent.
 
+/api/v1/getFirstAnswersOfMyStudents/{docent_id}
+	returns all first answers of answersheets made by students of {docent_id}
+	
 /api/v1/removeLinkToStudent/{student_id}:
 	Allows an user to remove a student from their group/ unlink
 
@@ -130,40 +145,17 @@ POST ``/api/v1/editAccount``
 		id
 		question_array
 		question_text
-		question_answers
-
-/api/v1/editForm:
-	Allows an user to edit a form.
-	Requires
-		id
-		title
-		questions_array
-		active
+		question_answersgetUserAnswersheets
 
 /api/v1/getUserForms/{user_id}:
 	Returns a JSON with all answers of user user_id.
 	
-/api/v1/geUserFormLatest/{user_id}:
-	Returns a JSON with the answers of the latest form filled in.
+/api/v1/getUserAnswersheets/{user_id}:
+	Returns a JSON with the id's of all answersheets filled in by {user_id}
 
-/api/v1/geUserDailyLatest/{user_id}:
-	Returns a JSON with the answers of user user_id of the daily check-in form (form_id 1).
+/api/v1/getUserAnswers/{user_id}:
+	Returns all answers of {user_id}
 	
-/api/v1/assignRole
-	Edits the role of the provided user to the provided role. Can only be done by admins through the admin middleware.
-	Expects: user_id, role
-	Example: 
-		{
-		
-		    "user_id": "13",
-		    
-		    "role": "1"
-		    
-		}
-
-/api/v1/getFormAll:
-	Returns a JSON with all forms
-
 /api/v1/getForm/{id}:
 	Returns a JSON with the form form_id and its associated questions.
 	
@@ -172,52 +164,12 @@ POST ``/api/v1/editAccount``
 
 /api/v1/getWeekly:
 	Returns a JSON with the weekly check-in form (form_id 2)
-	
-/api/v1/postForm:
-	Adds a new entry to the forms and questions table
-	Expects: form title as title, questions in a json array as questions.(the name of the question itself is inconsequential)
-	Example:
-		{
-		
-		    "title": "bah",
-		    
-		    "questions":{
-		    
-			"q1": {
-			
-			    "type": "text",
-			
-			    "data": "text",
-			    
-			    "title": "Hoe was je dag vandaag?"
-			    
-			},
-			
-			"q2": {
-			
-			    "type": "radio",
-			
-			    "data": "1-5",
-			    
-			    "title": "Rate je dag."
-			    
-			}
-			
-		    }
-		    
-		}
 
-/api/v1/getAnswerAll:
-	Returns a JSON with all answers written.
+/api/v1/getAnswersById/{id}:
+	Returns a JSON of the answers entry of answer.id {id}
 	
-/api/v1/getAnswerById/{id}:
-	Returns a JSON of all answers by id.
-	
-/api/v1/getFormAnswers/{form_id}:
-	Returns a JSON with the answers in the row form_id.
-	
-/api/v1/getAnswersByFormUser/{form_id}/{user_id}:
-	Returns a JSON of the answers on basis of form_id and user_id
+/api/v1/getAnswersByAnswersheet/{id}:
+	Returns a JSON of the answers of answersheet {id}
 	
 /api/v1/saveFormAnswers:
 	Saves the answers in the database.
@@ -236,29 +188,8 @@ POST ``/api/v1/editAccount``
 					
 				}
 
-/api/v1/getQuestionAll:
-	Returns a JSON with all questions.
-
-/api/v1/getQuestion/{id}:
-	Returns a JSON with Question id.
-	
 /api/v1/deleteAnswer/{id}:
-	Allows an user to delete an answer.
-
-/api/v1/putDaily:
-	Functionality that creates fake answer data.
-	
-/api/v1/getAnswersQuestionOne:
-	Returns a JSON with answers of question one of the daily-checkin
-
-/api/v1/getAllAnswersQuestionOne/{user_id}:
-	Returns a JSON with all answers of question one per user
-	
-/api/v1/getDailyCreatedAtLo:
-	Returns a JSON with the created_at date lower than provided date.
-	
-/api/v1/getDailyCreatedAtHi:
-	Returns a JSON with the created_at date higher than provided date.
+	Deletes all answers and ansersheeets connected to answersheet {id}
 
 /api/v1/getDailyCreatedAtBetweenUser/{from}/{to}/{user_id}
 	Returns a JSON with the created_at date that's between two provided dates by a specific user.
@@ -314,6 +245,7 @@ POST ``/api/v1/editAccount``
 
 		}
 		
+//alle competentie routes zijn achterhaald en moetten opnieuw geschreven worden
 /api/v1/editCompetentieNiveau:
 	Allows an user to edit a competentie niveau.
 	Requires:
@@ -487,18 +419,6 @@ POST ``/api/v1/editAccount``
 
 /api/v1/getAllCompetentieByUser/{comp_id}/{user_id}:
 	returns all competenties by user.
-
-/api/v1/editUserData
-	Allows an admin user to edit/update the data collumn of the user table.
-	Example:
-		{
-			
-			    "id": 2,
-			    
-			    "data": "Test 3.0",
-			
-			    
-			}	
 
 /api/v1/checkFilledIn/{user_id}/{form_id}
 	Checks the database if a daily check-in has been filled in already or not. The 'ProfileController' handles this API 	and returns a warning message if the check-in has been filled in.
