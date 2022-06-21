@@ -15,7 +15,8 @@ Hier kan je een image vinden voor het implementatie plan:
 Het stappen plan voor de implementatie is als volgt :
  
 Implementatie plan
-Alle stappen moeten succesvol uitgevoerd worden. Wanneer dit niet het geval is of wanneer er bevindingen zijn gemaakt, volg dan stappenplan 1.2:
+Alle stappen moeten succesvol uitgevoerd worden. Wanneer dit niet het geval is of wanneer er bevindingen zijn gemaakt, volg dan stappenplan 1.2.
+
 Stappenplan 1.1.0.
 -------
 - Stap 1.1.1: Vraag of alle functionaliteiten in de productie branch gemerged is.
