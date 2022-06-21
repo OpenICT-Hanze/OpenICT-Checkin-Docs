@@ -1,7 +1,5 @@
 Bevindingen
-===================================
 
-Hier komt uitleg over de bevindingen
 -----------
 Bevinding 1:
 -----------
