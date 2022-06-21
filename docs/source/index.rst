@@ -18,9 +18,10 @@ Contents
    environment
    installation
    database
-   releasenotes
-   deliverables
-   bevindingen
+   functionaliteiten
    api
    tests
    auth
+   releasenotes
+   deliverables
+   bevindingen
