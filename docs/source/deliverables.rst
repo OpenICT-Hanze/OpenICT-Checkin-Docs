@@ -9,5 +9,5 @@ Hier kan je de download vinden voor het implementatie plan in PDF vorm :
     
 .. _PDF: images/implementatieplan.pdf
 
-.. image:: images/implementatieplan.pdf
+.. image:: images/implementatieplan.png
    :align: center
