@@ -224,10 +224,10 @@ Check-in pagina’s
 	De check-in pagina is waar de student aangeeft hoe het met de student gaat, deze bestaat uit 5 vragen die worden opgeslagen in de database en vervolgens worden weergegeven in het dashboard van de student en dashboard (uitleg hierboven te vinden). De wekelijkse check-in wordt niet besproken omdat het concept anders wordt. 
 
 .. image:: images/afbeelding14.png
-   :align: left
+   :align: center
    
 .. image:: images/afbeelding15.png
-   :align: right
+   :align: center
 
 --------------
 Bestanden
