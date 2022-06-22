@@ -36,7 +36,7 @@ OpenICT-Checkin/app/Http/Controllers/Frontend/
 
 --------------
 API
--------------
+--------------
 	In de Applicatie worden alle getters en setters van informatie op de database op de api laag gedaan. De api laag roept de models aan via Eloquent ORM om query's te doen op de database.
 	
 .. note::
@@ -44,7 +44,7 @@ API
 
 --------------
 Model
--------------
+--------------
 	Eloquent ORM is een gedeelte query builder dat gebruikt kan worden op de models zodat er op een makkelijke manier query's gemaakt kan worden zonder dat er veel SQL-code geschreven hoeft te worden, afbeelding 2. De mogelijkheid is er om pure SQL-code te gebruiken samen met models, afbeelding 3.
 OpenICT-Checkin/app/Models/
 
@@ -56,7 +56,7 @@ OpenICT-Checkin/app/Models/
 
 --------------
 Database
--------------
+--------------
 	De database is een MariaDB database. Laravel forceert om tabellen te gebruiken die eindigen op s, om zo de tabellen in meervoud te hebben. De database heeft kort voor oplevering een update gehad. Er wordt geen gebruik gemaakt van views of procedures. 
 
 De database wordt opgebouwd en gevuld door seeders en migrations. Migrations maken de tabellen en kolommen en seeders stoppen data in de database.
@@ -66,7 +66,7 @@ De database wordt opgebouwd en gevuld door seeders en migrations. Migrations mak
    
 --------------
 Notifications
--------------
+--------------
 	Wanneer sommige criteria aanwezig zijn al er een notificatie in deze tabel komen. Op dit moment wordt het gebruikt om de docent te notificeren als de gemiddelde blijheid, van gekoppelde studenten, onder een bepaald niveau komt. De connectie naar Users is ervoor om te kunnen zeggen dat het om een bepaalde user gaat.
 
 --------------
@@ -122,9 +122,9 @@ Criteria
 --------------
 Aanbevelingen
 --------------
-
-Schermuitleg
-=============
+--------------------
+Schermuitleg:
+--------------------
 
 --------------
 Inlogscherm
