@@ -155,7 +155,7 @@ Het dashboard wordt gebruikt om studenten een snel overzicht te geven van de tev
    :align: center
 
 Bestanden
--------------
+--------------
 De functionaliteiten en variabelen die nodig zijn om dit dashboard tot stand te laten komen zijn terug te vinden in de DashboardController.php. Binnen de controller zijn een aantal functies beschreven. Het php-bestand is voorzien van documentatie voor een nadere verklaring van wat de functies precies doen. 
 
 Het design van het dashboard het dashboard en de functionaliteiten die het dashboard heeft zijn te vinden in het mapje ‘views->pages->dashboard’. De volgende views zijn hier terug te vinden:
@@ -165,14 +165,14 @@ Het design van het dashboard het dashboard en de functionaliteiten die het dashb
 
 
 Profiel
-------------
+-------------
 De profiel pagina geeft een overzicht van de gegevens van een gebruiker. Belangrijke gegevens hier zijn de projecten, de competenties en niveau’s en tot slot de beroepsrollen. Ook is het mogelijk om hier gegevens aan te passen.
 
 .. image:: images/afbeelding10.png
    :align: center
 
 Bestanden
-------------
+-------------
 De functionaliteiten en variabelen die nodig zijn om dit dashboard tot stand te laten komen zijn terug te vinden in de ProfileController.php. Binnen de controller zijn een aantal functies beschreven. Het php-bestand is voorzien van documentatie voor een nadere verklaring van wat de functies precies doen. 
 
 .. image:: images/afbeelding11.png
