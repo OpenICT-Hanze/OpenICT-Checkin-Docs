@@ -8,7 +8,7 @@ De volgende link redirect naar de aanwezige documentatie over de functionaliteit
   De volgende documentatie is puur geschreven vanwege administratieve redenen. Hierin wordt globaal uitgelegd wat, wat doet en hoe het in elkaar steekt.
   
  
-  
+--------------  
   Laravel
 --------------
 Het Laravel gedeelte is opgezet in vijf delen:
