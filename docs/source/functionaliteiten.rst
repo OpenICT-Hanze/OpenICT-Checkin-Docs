@@ -173,6 +173,7 @@ De profiel pagina geeft een overzicht van de gegevens van een gebruiker. Belangr
    :align: center
 
 Bestanden
+------------
 De functionaliteiten en variabelen die nodig zijn om dit dashboard tot stand te laten komen zijn terug te vinden in de ProfileController.php. Binnen de controller zijn een aantal functies beschreven. Het php-bestand is voorzien van documentatie voor een nadere verklaring van wat de functies precies doen. 
 
 .. image:: images/afbeelding11.png
