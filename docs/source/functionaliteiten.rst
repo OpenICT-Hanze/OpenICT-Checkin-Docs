@@ -47,11 +47,10 @@ OpenICT-Checkin/app/Models/
 
 .. image:: images/afbeelding2.png
    :align: center
-Afbeelding 2
 
 .. image:: images/afbeelding3.png
    :align: center
-Afbeelding 3
+
 
 Database
 -------------
