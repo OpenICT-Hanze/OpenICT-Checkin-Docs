@@ -6,6 +6,7 @@ There are 2 API versions available, until further notice only v1 is being used. 
 
 .. _v1:
 V1
+
 --------
 
 /api/v1/sanctum/token:
@@ -518,9 +519,266 @@ POST ``/api/v1/editAccount``
 		user_id: ID of the specific user.
 
 
+
 .. _v2:
+
 V2
 --------
+
+
 /api/v2/getVersion: 
 	Returns a JSON with the used version.
-	
+
+
+
+.. _v3:
+
+V3
+--------
+
+
+.. _authenticatie_autorisatie:
+
+Authenticatie & Autorisatie
+---------------------------
+
+Om je te authenticeren voor de API, vraag je eerst een token op via ``/api/v1/sanctum/token``.
+De token die je van de API krijgt, zet je in een header als ``Authorization: Bearer {token}``.
+
+.. note::
+	Je kunt de API alleen gebruiken als je voldoende rechten hebt.
+
+
+.. _endpoints:
+
+API V3 Endpoints
+----------------
+
+Hieronder een opsommingen van de API endpoints die gebruikt kunnen worden in combinatie met de geïmplementeerde :ref:`entiteiten_relaties`. 
+Voor elke API call geldt de prefix /api/v3.
+
+**GET** ``/entity``
+	Vraag een collectie entiteiten op, eventueel in combinatie met zoekparameters.
+
+	.. note:: **Voorbeeld**
+
+		Zoek alle users met een email gelijk aan s.tudent@st.hanze.nl:
+
+		**GET** ``/users``
+
+		.. code-block:: json
+
+			{
+				"email": "s.tudent@st.hanze.nl"
+			}
+
+
+**POST** ``/entity``
+	Voeg een nieuwe entiteit toe.
+
+	.. note:: **Voorbeeld**
+
+		Voeg een nieuwe user toe:
+
+		**POST** ``/users``
+
+		.. code-block:: json
+
+			{
+				"name": "Student",
+				"email": "s.tudent@st.hanze.nl",
+				"password": "geheimstudentenwachtwoord"
+			}
+
+
+**GET** ``/entity/id``
+	Haal een specifieke entiteit op.
+
+	.. note:: **Voorbeeld**
+
+		Haal de user met id 1 op:
+
+		**GET** ``/users/1``
+
+
+**PUT** ``/entity/id``
+	Pas een entiteit aan.
+
+	.. note:: **Voorbeeld**
+
+		Verander de email van een user naar d.ocent@pl.hanze.nl:
+
+		**PUT** ``/users/1``
+
+		.. code-block:: json
+
+			{
+				"email": "d.ocent@pl.hanze.nl"
+			}
+
+
+**DELETE** ``/entity/id``
+	Verwijder een entiteit.
+
+	.. note:: **Voorbeeld**
+
+		Verwijder de user met id 1:
+
+		**DELETE** ``/users/1``
+
+
+**GET** ``/entity/id/relation``
+	Haal de relaties van een specifiek model op, eventueel met zoekparameters.
+
+	.. note:: **Voorbeeld**
+
+		Bekijk de checkins van de user 1, waarvan de mood_score 5 is:
+
+		**GET** ``/users/1/daily-checkins``
+
+		.. code-block:: json
+
+			{
+				"mood_score": 5
+			}
+
+		Bekijk alle projecten waaraan user 1 gekoppeld is:
+
+		**GET** ``/users/1/projects``
+
+
+**POST** ``/entity/id/relation``
+	Voeg een nieuwe relatie toe aan een entiteit.
+
+	.. note:: **Voorbeeld**
+
+		Maak een nieuwe daily checkin aan voor user 1:
+
+		**POST** ``/users/1/daily-checkins``
+
+		.. code-block:: json
+
+				{
+					"mood_score": 5,
+					"mood_description": "Toppie",
+					"hours_worked": 6,
+					"comment": "Heb je een scooter?"
+				}
+
+	.. warning:: 
+		Deze API call werkt enkel voor ``hasMany`` relaties (:ref:`entiteiten_relaties`)
+
+
+**GET** ``/entity/id/relation/id``
+	Haal een specifieke relatie bij een entiteit op.
+
+	.. note:: **Voorbeeld**
+
+		Haal het project met id 1 op, als deze bij user 1 hoort:
+
+		**GET** ``/users/1/projects/1``
+
+
+**PUT** ``/entity/id/relation/id``
+	Koppel twee entiteiten aan elkaar.
+
+	.. note:: **Voorbeeld**
+
+		Koppel project 1 aan user 1:
+
+		**PUT** ``/users/1/projects/1``
+
+	.. warning:: 
+		Deze API call werkt enkel voor ``belongsToMany`` relaties (:ref:`entiteiten_relaties`)
+
+
+**DELETE** ``/entity/id/relation/id``
+	Verwijder een relatie of koppel twee entiteiten los.
+
+	.. note:: **Voorbeeld**
+
+		Verwijder de daily checkin met id 1 van user 1:
+
+		**DELETE** ``/users/1/daily-checkins/1``
+
+		Koppel project 1 los van user 1:
+
+		**DELETE** ``/users/1/projects/1``
+
+
+.. _response_codes:
+
+API responses
+-------------
+
+De API geeft voor elke client request een response terug. 
+Hieronder staat aangegeven in welke situatie welke response van de API verwacht kan worden.
+
+``HTTP 200``
+``HTTP 201``
+``HTTP 204``
+	Bij een succesvolle request zal een 200, 201 of 204 response terug worden gegeven. 
+
+``HTTP 404``
+	Als een bepaalde resource wordt opgevraagd die niet bestaat, zal een 404 response worden teruggegeven.
+
+	.. note:: **Voorbeeld**
+
+		``/users/1``, waarbij geen user met id 1 bestaat.
+
+		``/users/1/daily-checkins/1``, waarbij geen user **en/of** daily checkin met id 1 bestaat, **of** dat beide wel bestaan, maar de daily checkin bij een andere user hoort.
+
+		``/users/1/projects/1``, waarbij geen user **en/of** project met id 1 bestaat, **of** dat beide wel bestaan, maar het project niet aan de user is gekoppeld.
+
+``HTTP 403``
+	Als de gebruiker een token meestuurt, maar de token incorrect is of de gebruiker onvoldoende rechten heeft, zal een 403 response terug worden gegeven.
+
+``HTTP 401``
+	Als de gebruiker de API probeert te gebruiken zonder een token mee te sturen, kan een 401 response verwacht worden.
+
+``HTTP 400``
+	Bij een API call in combinatie met een request body met onvoldoende of ongeldige parameters, zal een 400 response worden teruggestuurd.
+
+
+.. _entiteiten_relaties:
+
+Entiteiten & Relaties
+---------------------
+
+Op dit moment geeft de API V3 toegang tot de volgende entiteiten en relaties.
+
+* **users**
+
+	* ``hasMany`` cubes
+	* ``hasMany`` daily-checkins
+	* ``hasMany`` weekly-checkins
+	* ``belongsToMany`` jobroles
+	* ``hasMany`` notifications
+	* ``belongsToMany`` projects
+	* ``hasMany`` portfolio-elements
+
+* **projects**
+
+	* ``belongsToMany`` users
+
+* **groups**
+
+	* ``belongsToMany`` users
+
+* **jobroles**
+
+	* ``belongsToMany`` users
+	* ``hasMany`` descriptions
+
+* **cubes**
+
+	* ``hasMany`` matrix-fields
+
+* **matrix-field**
+
+	* ``belongsToMany`` portfolio-elements
+
+* **portfolio-elements**
+* **activities**
+* **architectures**
+* **levels**
