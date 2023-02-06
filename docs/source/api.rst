@@ -2,12 +2,12 @@ API
 ===================================
 .. _api:
 
-There are 2 API versions available, until further notice only v1 is being used. It will automatically remap every API call to the default API version in case the version has been omitted. 
+There are 3 API versions available of which 2 are deprecated and no longer in use. API V1 is still being used for authentication.
 
 .. _v1:
-V1
 
---------
+V1 (Deprecated, use V3 instead)
+-------------------------------
 
 /api/v1/sanctum/token:
 	Functionality that checks if the user filled in the right login credentials, if that's the case, a token will be created and added to the User table.
@@ -522,8 +522,8 @@ POST ``/api/v1/editAccount``
 
 .. _v2:
 
-V2
---------
+V2 (Deprecated, use V3 instead)
+-------------------------------
 
 
 /api/v2/getVersion: 
@@ -534,7 +534,7 @@ V2
 .. _v3:
 
 V3
---------
+-------
 
 
 .. _authenticatie_autorisatie:
@@ -545,8 +545,9 @@ Authenticatie & Autorisatie
 Om je te authenticeren voor de API, vraag je eerst een token op via ``/api/v1/sanctum/token``.
 De token die je van de API krijgt, zet je in een header als ``Authorization: Bearer {token}``.
 
-.. note::
-	Je kunt de API alleen gebruiken als je voldoende rechten hebt.
+Voor het gebruik van de API moet je geauthenticeerd zijn. Als dit niet het geval is, krijg je een ``401`` terug.
+Ook moet je de juiste rechten hebben om bepaalde API endpoints te kunnen gebruiken. 
+Een student kan bijvoorbeeld geen andere student aanmaken, maar een docent of admin kan dit wel.
 
 
 .. _endpoints:
@@ -554,11 +555,11 @@ De token die je van de API krijgt, zet je in een header als ``Authorization: Bea
 API V3 Endpoints
 ----------------
 
-Hieronder een opsommingen van de API endpoints die gebruikt kunnen worden in combinatie met de geïmplementeerde :ref:`entiteiten_relaties`. 
-Voor elke API call geldt de prefix /api/v3.
+Hieronder een opsomming van de API endpoints die gebruikt kunnen worden in combinatie met de geïmplementeerde :ref:`entiteiten_relaties`. 
+Voor elke API call geldt de prefix ``/api/v3``.
 
-**GET** ``/entity``
-	Vraag een collectie entiteiten op, eventueel in combinatie met zoekparameters.
+**GET** ``/entity`` of **POST** ``/entity/search``
+	Vraag een collectie entiteiten op, eventueel in combinatie met :ref:`search_parameters`.
 
 	.. note:: **Voorbeeld**
 
@@ -571,6 +572,10 @@ Voor elke API call geldt de prefix /api/v3.
 			{
 				"email": "s.tudent@st.hanze.nl"
 			}
+
+	.. note::
+
+		Voor deze endpoint kun je twee verschillende URLs gebruiken. De reden hiervoor is dat je in sommige gevallen geen request body mee kan sturen met een **GET** request. Hiervoor is een alternatieve **POST** request gemaakt.
 
 
 **POST** ``/entity``
@@ -627,8 +632,8 @@ Voor elke API call geldt de prefix /api/v3.
 		**DELETE** ``/users/1``
 
 
-**GET** ``/entity/id/relation``
-	Haal de relaties van een specifiek model op, eventueel met zoekparameters.
+**GET** ``/entity/id/relation`` of **POST** ``/entity/id/relation/search``
+	Haal de relaties van een specifiek model op, eventueel met :ref:`search_parameters`.
 
 	.. note:: **Voorbeeld**
 
@@ -645,6 +650,11 @@ Voor elke API call geldt de prefix /api/v3.
 		Bekijk alle projecten waaraan user 1 gekoppeld is:
 
 		**GET** ``/users/1/projects``
+
+	.. note::
+
+		Voor deze endpoint kun je twee verschillende URLs gebruiken. De reden hiervoor is dat je in sommige gevallen geen request body mee kan sturen met een **GET** request. Hiervoor is een alternatieve **POST** request gemaakt.
+
 
 
 **POST** ``/entity/id/relation``
@@ -706,6 +716,192 @@ Voor elke API call geldt de prefix /api/v3.
 		**DELETE** ``/users/1/projects/1``
 
 
+.. _search_parameters:
+
+Search parameters
+-----------------
+
+Voor de API endpoints
+
+**GET** ``/entity`` of **POST** ``/entity/search``
+
+en
+
+**GET** ``/entity/id/relation`` of **POST** ``/entity/id/relation/search``
+
+en gedeeltelijk
+
+**GET** ``/entity/id`` en **GET** ``/entity/id/relation/id``
+
+kun je search parameters meegeven in de vorm van een JSON request body.
+Dit is handig om te kunnen bepalen hoeveel informatie je terug krijgt wanneer je data opvraagt.
+
+Er zijn een aantal mogelijkheden voor het beïnvloeden van de response data. Deze methodes worden hieronder met voorbeelden uitgelegd:
+
+Velden
+^^^^^^
+
+Je kan de inkomende data filteren op basis van de database velden. Stel je doet de volgende request:
+
+**GET** ``/api/v3/projects``
+
+Dan krijg je als response het volgende terug:
+
+.. code-block:: json
+
+	[
+		{
+			"id": 1,
+			"name": "Check-in",
+			"description": "Het ontwikkelen van een feedback en check-in tool"
+		},
+		{
+			"id": 2,
+			"name": "Powerchainger",
+			"description": "Apparaten herkennen adhv het verbruiksprofiel"
+		},
+		{
+			"id": 3,
+			"name": "Colloquium app",
+			"description": "Maken van een applicatie waarin voordrachten kunnen worden bijgehouden"
+		},
+		{
+			"id": 4,
+			"name": "ACS",
+			"description": "Opruimen van ACS coderepo"
+		}
+	]
+
+Wil je alleen de Colloquium app vinden? Dan kan je het volgende doen:
+
+Request:
+
+.. code-block:: json
+
+	{
+		"name": "Colloquium app"
+	}
+
+Response:
+
+.. code-block:: json
+
+	[
+		{
+			"id": 3,
+			"name": "Colloquium app",
+			"description": "Maken van een applicatie waarin voordrachten kunnen worden bijgehouden"
+		}
+	]
+
+Maar wat nou als je de naam niet precies weet? Dan is er de volgende mogelijkheid:
+
+Request:
+
+.. code-block:: json
+
+	{
+		"name": {
+			"like": "collo"
+		}
+	}
+
+Response:
+
+.. code-block:: json
+
+	[
+		{
+			"id": 3,
+			"name": "Colloquium app",
+			"description": "Maken van een applicatie waarin voordrachten kunnen worden bijgehouden"
+		}
+	]
+
+Naast de `operator` ``like``, kun je voor numerieke velden ook ``<`` (kleiner dan) en ``>`` (groter dan) gebruiken.
+
+
+Relaties
+^^^^^^^^
+
+Je kan ook aangeven welke relaties je terug wil zien in de response door middel van een ``with`` array. Stel je bekijkt de user met ID 47:
+
+**GET** ``/api/v3/users/47``
+
+.. code-block:: json
+
+	{
+		"id": 47,
+		"name": "Student",
+		"email": "s.tudent@st.hanze.nl",
+		"roles": [
+			"Student"
+		],
+		"permissions": [
+			"use studentendashboard"
+		]
+	}
+
+Misschien is dit niet genoeg informatie en wil je ook kunnen zien aan welke groepen en projecten deze gebruiker gekoppeld is. 
+Dan kan je natuurlijk twee requests doen naar 
+**GET** ``/api/v3/users/47/projects`` en **GET** ``/api/v3/users/47/groups``,
+maar je kan het ook in één request doen.
+
+**GET** ``/api/v3/users/47``
+
+Request:
+
+.. code-block:: json
+
+	{
+		"with": [
+			"groups",
+			"projects"
+		]
+	}
+
+Response:
+
+.. code-block:: json
+
+	{
+		"id": 47,
+		"name": "Student",
+		"email": "s.tudent@st.hanze.nl",
+		"roles": [
+			"Student"
+		],
+		"permissions": [
+			"use studentendashboard"
+		],
+		"projects": [],
+		"groups": [
+			{
+				"id": 1,
+				"name": "Coachingsgroep Ronald (Checkin)",
+				"description": "Studenten die werken aan de check-in tool."
+			}
+		]
+	}
+
+De relaties die in de ``with`` array gezet kunnen worden, komen redelijkerwijs overeen met de relaties in :ref:`entiteiten_relaties`.
+
+Er zijn ook een aantal extra opties die via de ``with`` array kunnen worden opgevraagd:
+
+* **Groups**
+
+	* ``user_mood_avg`` (Gemiddelde mood_score van alle gebruikers van een groep van de huidige week)
+	* ``hours_worked_today`` (Totaal aantal uur dat alle gebruikers van een groep vandaag hebben gewerkt)
+	* ``hours_worked_yesterday`` (Totaal aantal uur dat alle gebruikers van een groep gisteren hebben gewerkt)
+
+* **Users**
+
+	* ``happiness`` (Overzicht van de mood_scores van een gebruiker van het begin van dit jaar tot nu)
+	* ``hoursWorkedThisWeek`` (Totaal aantal uur dat de gebruiker deze week heeft gewerkt)
+	* ``canDoDaily`` (Of de gebruiker vandaag nog een daily checkin kan invullen)
+	* ``canDoWeekly`` (Of de gebruiker deze week nog een weekly checkin kan invullen)
+
+
 .. _response_codes:
 
 API responses
@@ -749,12 +945,13 @@ Op dit moment geeft de API V3 toegang tot de volgende entiteiten en relaties.
 
 * **users**
 
+	* ``belongsToMany`` projects
+	* ``belongsToMany`` groups
 	* ``hasMany`` cubes
 	* ``hasMany`` daily-checkins
 	* ``hasMany`` weekly-checkins
 	* ``belongsToMany`` jobroles
 	* ``hasMany`` notifications
-	* ``belongsToMany`` projects
 	* ``hasMany`` portfolio-elements
 
 * **projects**
